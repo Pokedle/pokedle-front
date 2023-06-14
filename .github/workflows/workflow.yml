@@ -27,9 +27,9 @@ jobs:
         npm install
     - name: Render Deploy Action
       uses: johnbeynon/render-deploy-action@v0.0.8
-        with:
-          service-id: 
+      with:
+        service-id: ci4t1henqqlf6bqr3430?key=1pzOJVf7PpE
 
-          api-key: 
+        api-key: ${{secrets.API_KEY}}
     
 
