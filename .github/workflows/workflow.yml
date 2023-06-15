@@ -29,7 +29,6 @@ jobs:
       uses: johnbeynon/render-deploy-action@v0.0.8
       with:
         service-id: ci4t1henqqlf6bqr3430?key=1pzOJVf7PpE
-
         api-key: ${{secrets.API_KEY}}
     
 
