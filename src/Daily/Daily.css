@@ -4,7 +4,7 @@
 }
 
 .daily h1 {
-    font-size: 2.5em;
+    font-size: 2.0em;
     height: 20%;
     text-align: center;
 }
@@ -33,6 +33,21 @@
     background-color: #0077b6;
     color: white; font-size: 0.5em; font-weight: bold;
     cursor: pointer;
+}
+
+.firstRow {
+    display: flex; justify-content: center; align-items: center;
+    width: 100%; 
+}
+
+.firstRow > * {
+    width: 100px;
+    border: 1px solid black;
+    display: flex; justify-content: center;
+}
+
+.attr h2 {
+    font-size: 0.7em;
 }
 
 @media only screen and (max-width: 1000px) {

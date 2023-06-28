@@ -30,10 +30,8 @@ export default function Main(props: {component: ReactNode}) {
                 method: 'GET'
             }).then(res => res.json().then(async species => {
                 attrStore.setHp(result.stats[0].base_stat)
-                attrStore.setAttack(result.stats[1].base_stat)
-                attrStore.setDefense(result.stats[2].base_stat)
-                attrStore.setSpAttack(result.stats[3].base_stat)
-                attrStore.setSpDefense(result.stats[4].base_stat)
+                attrStore.setHeight(result.height)
+                attrStore.setWeight(result.weight)
                 attrStore.setSpeed(result.stats[5].base_stat)
                 attrStore.setBaby(species.is_baby)
                 attrStore.setLegendary(species.is_legendary)
@@ -42,12 +40,19 @@ export default function Main(props: {component: ReactNode}) {
                 attrStore.setColor(species.color.name)
                 attrStore.setMythical(species.is_mythical)
                 attrStore.setGeneration(species.generation.url.split('/')[6])
-                attrStore.setTypes(result.types)
+                attrStore.setTypes(typeHandler(result.types))
             }))
         }))
 
     }, [store.name])
 
+    const typeHandler = (types: any) => {
+        if(types[1]) {
+            return [types[0].type.name, types[1].type.name]
+        } else {
+            return [types[0].type.name]
+        }
+    }
     
 
     useEffect(() => {

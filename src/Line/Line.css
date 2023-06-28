@@ -16,6 +16,24 @@
     opacity: 0.9;
     filter: brightness(13);
     width: 100px;
-    height: 70px;
-    display: flex; justify-content: center; align-items: center;
+    height: 30px;
+    display: flex; justify-content: center; align-items: center; flex-flow: column nowrap;
+    position: relative;
+    font-size: 0.6em;
+    color: rgba(255, 255, 255, 0.878);
+}
+
+.arrow, .arrow2 {
+    position: absolute;
+}
+
+.arrow {
+    height: 30px;
+    width: 20px;
+    transform: scale(2);
+}
+.arrow2 {
+    height: 20px;
+    width: 30px;
+    transform: scale(2);
 }
