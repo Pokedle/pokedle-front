@@ -1,0 +1,21 @@
+.line {
+    display: flex; flex-flow: row nowrap; justify-content: center; gap: 1px;
+    width: 100%;
+    min-height: 50px;
+    margin: 10px 0px;
+}
+
+.line .guess {
+    display: flex; flex-flow: column nowrap; align-items: center; justify-content: center;
+    margin: 10px 0px;
+}
+
+.guessInput {
+    border: 1px solid #111222;
+    border-radius: 10px;    
+    opacity: 0.9;
+    filter: brightness(13);
+    width: 100px;
+    height: 70px;
+    display: flex; justify-content: center; align-items: center;
+}
