@@ -1,32 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from './Main/Main';
+import Daily from './Daily/Daily';
+import Infinite from './Infinite/Infinite';
+import Success from './Success/Success';
+import Home from './Home/Home';
+import Challenges from './Challenges/Challenges';
 
 function App() {
-  const[random, setRandom] = useState<number>();
-  const[pokemon, setPokemon] = useState<string>()
-
-  function getRandomIntInclusive(min : number, max : number) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-  }
-
-  useEffect(() => {
-    var x = getRandomIntInclusive(1, 1010)
-    setRandom(x)
-  }, [])
-
-  useEffect(() => {
-    random && fetch(`https://pokeapi.co/api/v2/pokemon/${random}`).then(res => res.json().then(data => {
-      setPokemon(data.name)
-    }))
-  }, [random])
-
   return (
-    <div className="App">
-      {pokemon && <Main name={pokemon}/>}
-    </div>
+    <BrowserRouter> 
+      <Routes>
+        <Route path="/" element={<Main component={<Home/>}/>}/>
+        <Route path='DailyChallenge' element={<Main component={<Daily />}/>}/>
+        <Route path="InfiniteChallenge" element={<Main component={<Infinite/>}/>}/>
+        <Route path='success' element={<Success/>}/>
+        <Route path='challenges' element={<Main component={<Challenges/>}/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

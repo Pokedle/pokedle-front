@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    font-family: 'Press Start 2P';
+}
+
+.content {
+    width: 85%;
+    margin-left: 15%;
+    max-height: 100vh;
+    overflow: auto;
+    position: relative;
+    background-color: #caf0f8;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+}
