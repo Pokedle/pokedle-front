@@ -5,7 +5,6 @@ import Daily from './Daily/Daily';
 import Infinite from './Infinite/Infinite';
 import Success from './Success/Success';
 import Home from './Home/Home';
-import Challenges from './Challenges/Challenges';
 
 function App() {
   return (
@@ -15,9 +14,8 @@ function App() {
         <Route path='DailyChallenge' element={<Main component={<Daily />}/>}/>
         <Route path="InfiniteChallenge" element={<Main component={<Infinite/>}/>}/>
         <Route path='success' element={<Success/>}/>
-        <Route path='challenges' element={<Main component={<Challenges/>}/>}/>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> 
   );
 }
 

@@ -1,12 +1,12 @@
-import Aside from "../Aside/Aside";
-import './Main.css'
+import './Main.css';
 import { 
     ReactNode,
     useEffect,
- } from 'react'
+ } from 'react';
 import useStore from "../nameStore";
 import useAttributesStore from "../attributesStore";
 import '../style.css'
+import Header from '../Header/Header';
 
 
 export default function Main(props: {component: ReactNode}) {
@@ -57,7 +57,6 @@ export default function Main(props: {component: ReactNode}) {
 
     return(
         <div className="main">
-            <Aside/>
             {props.component}
         </div>
     )
