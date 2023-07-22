@@ -56,22 +56,23 @@ export default function Line(props: {name: string}) {
             setHighest(arr.sort((a, b) => {return a - b}).reverse()[0])
         }
 
-        if(types.length >=1) {
-            console.log(JSON.stringify(types))
-            console.log(JSON.stringify(attrStore.types))
-            console.log( JSON.stringify(types) ===  JSON.stringify(attrStore.types))
-            if(JSON.stringify(types) === JSON.stringify(attrStore.types)) {
+        if(types.length >= 1) {
+            if(types.length > attrStore.types.length) {
+                attrStore.types[0] in types && setbTypeIncluded(1)
+            } else if (types.length < attrStore.types.length) {
+                types[0] in attrStore.types && setbTypeIncluded(1)
+            } else if (types === attrStore.types) {
                 setbTypeIncluded(2)
-            } else {
-                types.forEach(el => {
-                    console.log(el.toString())
-                    console.log('types: ',attrStore.types)
-                    console.log(`${el}` in attrStore.types)
-                    el in attrStore.types && setbTypeIncluded(1)
-                })
+            } else if (types.length === attrStore.types.length) {
+                if(types[0] in attrStore.types && types[1] in attrStore.types) {
+                    setbTypeIncluded(2)
+                } else if(types[0] in attrStore.types || types[1] in attrStore.types) {
+                    setbTypeIncluded(1)
+                } 
             }
         }
     } , [types])
+
 
     return (
         <>
@@ -96,7 +97,7 @@ export default function Line(props: {name: string}) {
             <div className="guessInput" style={{backgroundColor: generation === attrStore.generation ? '#008000' : '#FE0000', height: highest * 3 < 180 ? `${highest * 3}px`: '180px'}}>
                 <p>{generation}</p>
             </div>            
-            <div className="guessInput" style={{backgroundColor: bTypeIncluded === 2 ? '#008000' : bTypeIncluded === 1 ? '#DCB01E' : '#FE0000', height: highest * 3 < 180 ? `${highest * 3}px`: '180px'}}>
+            <div className="guessInput" style={{backgroundColor: bTypeIncluded === 2 ? '#008000' : bTypeIncluded === 1 ? 'yellow' : '#FE0000', height: highest * 3 < 180 ? `${highest * 3}px`: '180px'}}>
                 <div className="types">{types.map(el => (<p>{el}</p>))}</div>
             </div>
             <div className="guessInput" style={{backgroundColor: color === attrStore.color ? '#008000' : '#FE0000', height: highest * 3 < 180 ? `${highest * 3}px`: '180px'}}>
