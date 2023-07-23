@@ -11,8 +11,8 @@ function App() {
     <BrowserRouter> 
       <Routes>
         <Route path="/" element={<Main component={<Home/>}/>}/>
-        <Route path='DailyChallenge' element={<Main component={<Daily />}/>}/>
-        <Route path="InfiniteChallenge" element={<Main component={<Infinite/>}/>}/>
+        <Route path='dailyChallenge' element={<Main component={<Daily />}/>}/>
+        <Route path="infiniteChallenge" element={<Main component={<Infinite/>}/>}/>
         <Route path='success' element={<Success/>}/>
       </Routes>
     </BrowserRouter> 

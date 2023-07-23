@@ -22,6 +22,9 @@ export default function Daily() {
             } else {
                 setGuesses([<Line name={guess}/>, ...guesses])
                 setGuess('')
+                if(input.current !== null) {
+                    input.current.value = ''
+                }
             }
         }
     }
@@ -35,9 +38,9 @@ export default function Daily() {
     const handleClick = (name: string) => {
         setGuess(name)
         if(input.current != null) {
+            setSuggestions([suggestions[0]]);
             input.current.value = name;
         }
-        setSuggestions([])
     }
 
       interface Pokemon {
@@ -50,7 +53,6 @@ export default function Daily() {
             var arr: Pokemon[] = []
             allPokemons.pokemons.forEach((pokemon: Pokemon) => {
                 if(pokemon.name.includes(guess)) {
-                    console.log(pokemon.name)
                     arr.length < 7 && arr.push(pokemon)
                 }
             })
@@ -67,21 +69,17 @@ export default function Daily() {
             <h1>Bem vindo(a) ao <i>desáfio diário</i></h1>
             <div className="guess">
                 <div className="guessSpace">
-                    <input type='text' onChange={(e) => setGuess(e.target.value)} onKeyPress={handleKeyPress} className='txtSpace' ref={input}/>
+                    <input type='text' onChange={(e) => setGuess(e.target.value.toLowerCase())} onKeyPress={handleKeyPress} className='txtSpace' ref={input}/>
                     <button onClick={doGuess}>Adivinhar!</button>
-                </div>
-                <div className="guessSpace">
-                    <div className="suggestions">
-                        {suggestions && <>
-                            {
-                            suggestions.map((pokemon: Pokemon) => (
+                    <div className="suggestions" style={{height: `${suggestions.length * 40}px`}}>
+                        {
+                            suggestions && suggestions.map((pokemon) => (
                                 <div className='suggestion' onClick={() => handleClick(pokemon.name)}>
-                                    <img src={pokemon.url} alt={pokemon.name} style={{width: '40px', height: '40px'}}/>
+                                    <img src={pokemon.url} alt={pokemon.name}/>
                                     <p>{pokemon.name}</p>
                                 </div>
                             ))
-                            }
-                        </>}
+                        }
                     </div>
                 </div>
             </div>
