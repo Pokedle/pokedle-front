@@ -1,17 +1,23 @@
 .challenges {
     display: flex; justify-content: center; gap: 0px 50px;
     width: 100%;
-    height: calc(100vh - 16vh);
+    height: calc(99vh - 16vh);
     margin-top: 15px;
 }
 
 .challenge {
     width: 45%; height: 60%;
-    color: black;
     background-size: cover; background-repeat: no-repeat; background-position: center;
     display: flex; justify-content: center; align-items: center; flex-flow: column nowrap;
     border-radius: 10px;
     position: relative;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.challenge:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px black;
 }
 
 .challenge h1 {

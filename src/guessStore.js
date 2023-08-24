@@ -1,20 +1,18 @@
 import { create } from 'zustand'
 
-const useAttributesStore = create((set) => ({
-    hp: "",
-    baby: "",
-    color: "",
-    flavorText: "",
-    mythical: "",
-    legendary: "",
-    speed: "",
-    generation: "",
-    height: "",
-    weight: "",
-    types: [],
-    imgUrl: "",
-    id: "",
-    setId: (newId) => set({id: newId}),
+const guessStore = create((set) => ({
+    hp: null,
+    baby: null,
+    color: null,
+    flavorText: null,
+    mythical: null,
+    legendary: null,
+    speed: null,
+    generation: null,
+    height: null,
+    weight: null,
+    types: null,
+    bTypeIncluded: 0,
     setGeneration: (newGeneration) => set({generation: newGeneration}),
     setHp: (newHp) => set({hp: newHp}),
     setBaby: (newBaby) => set({baby: newBaby}),
@@ -26,7 +24,7 @@ const useAttributesStore = create((set) => ({
     setTypes: (newTypes) => set({types: newTypes}),
     setHeight: (newHeight) => set({height: newHeight}),
     setWeight: (newWeight) => set({weight: newWeight}),
-    setImgUrl: (newImgUrl) => set({imgUrl: newImgUrl})
+    setbTypeIncluded: (newbTypeIncluded) => set({bTypeIncluded: newbTypeIncluded}),
 }))
 
-export default useAttributesStore;
+export default guessStore;

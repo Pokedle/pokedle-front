@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
 const userStore = create(set => ({
-    logged: false,
-    setLogged: (newLogged) => set({logged: newLogged})
+    username: "",
+    setUsername: (newUsername) => set({username: newUsername}),
 }))
 
 export default userStore
