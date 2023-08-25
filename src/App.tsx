@@ -21,7 +21,7 @@ function App() {
             method: "POST"
         }).then(res => res.json().then(async data => {
             await store.changeName(data.nome)
-            console.log(data)
+            console.log(data.new)
             if (data.new === true) {
                 localStorage.setItem('won', 'false')
                 localStorage.setItem('lifes', '15')
@@ -37,7 +37,7 @@ function App() {
             return [types[0].type.name]
         }
     }
-
+////////////////////////////////////////////////
     useEffect(() => {
         store.name !== '' &&
         console.log(store.name)
@@ -70,6 +70,7 @@ function App() {
                 })) 
         }
     }, [response])
+////////////////////////////////////////////////
 
     useEffect(() => {
         console.log(attrStore);

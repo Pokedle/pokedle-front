@@ -2,8 +2,6 @@ import './Ending.css'
 import '../style.css'
 import '../Daily/Daily.css'
 import { ReactNode, useEffect } from 'react'
-import redHeart from '../assets/red_heart.png'
-import blackHeart from '../assets/black_heart.png'
 
 export default function Ending(props: {won: boolean, name: string, url: string, lifes: ReactNode[]}) {
     return (

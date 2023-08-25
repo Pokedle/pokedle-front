@@ -33,6 +33,7 @@ export default function Daily() {
             localStorage.setItem("won", 'false')
             setHealth(15)
         } 
+
     }, [])
 
     useEffect(() => {
@@ -101,6 +102,10 @@ export default function Daily() {
             doGuess(name)
         }
     }
+    ///
+    ////
+    //// COLOCAR ANIMAÇÃO DE CARREGAMENTO NO BOTÃO QUE FAZ A GUESS
+    ////
 
     function clearInput() {
         if(input.current && input.current.value !== null) {
